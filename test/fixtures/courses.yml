@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+waterview:
+  name: "Waterview"
+  par: 72
+  par_data: "4 3 5 4 4 5 4 3 4 4 5 3 4 4 5 4 3 4"
+
+buffalocreek:
+  name: "Buffalo Creek"
+  par: 71
+  par_data: "4 4 5 3 4 4 4 3 4 4 4 3 4 5 4 5 3 4"
+
+watterscreek:
+  name: "Watters Creek"
+  par: 72
+  par_data: "4 4 3 5 4 4 5 4 3 4 3 4 4 5 4 3 4 5"
+
+trailsoffrisco:
+  name: "Trails of Frisco"
+  par: 71
+  par_data: "5 4 3 4 4 3 5 4 4 5 3 4 4 3 4 3 4 5"
+
+pecanhollow:
+  name: "Pecan Hollow"
+  par: 71
+  par_data: "4 3 4 4 3 4 4 5 4 4 4 5 4 3 4 4 3 5"
+
+ridgeviewranch:
+  name: "Ridgeview Ranch"
+  par: 72
+  par_data: "4 5 4 4 3 5 3 4 4 5 4 3 4 4 4 5 3 4"
+
+westridge:
+  name: "Westridge"
+  par: 72
+  par_data: "5 4 3 4 3 5 3 4 5 5 3 5 3 4 3 4 5 4"
+
+twincreeks:
+  name: "Twin Creeks"
+  par: 72
+  par_data: "3 4 5 4 5 3 4 5 3 3 4 5 3 4 5 4 5 3"
+
+coyoteridge:
+  name: "Coyote Ridge"
+  par: 72
+  par_data: "4 5 3 5 4 4 3 4 4 5 3 4 4 3 5 4 4 4"

@@ -1,0 +1,65 @@
+
+<div class="container">
+      <h2>Rounds for: <%= @golfer.name %></h2>
+
+  <div class="row">
+    <div class="col-md-12">
+
+    <% if @golfer.scores.size > 0 %>
+
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Course</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+            <th>14</th>
+            <th>15</th>
+            <th>16</th>
+            <th>17</th>
+            <th>18</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @golfer.scores.each do |score| %> 
+            <tr>
+              <td><p><strong><%= friendly_date(score.round.date) %></strong></p></td>
+              <td><p><strong><%= score.round.course.name %></strong></p></td>
+              <% per_hole_par_values = get_values(score.round.course.par_data) %>
+              <% score = get_values(score.score) %>
+              <% for i in 0..score.length-1 do %>
+                <% if score[i] < per_hole_par_values[i] %>
+                  <td><span id="birdie"><strong><%= score[i] %></strong></span></td>
+                <% elsif score[i] > per_hole_par_values[i] %>
+                  <td><span id="bogey"><strong><%= score[i] %></strong></span></td>
+                <% else %>
+                  <td><strong><%= score[i] %></strong></td>
+                <% end %>
+              <% end %>
+              <td><strong><%= sum_values(score) %></strong></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+  <p><strong>This golfer has not played a round yet.</strong></p>
+<% end %>
+    <!--
+      <td><%= link_to 'Back', golfers_path %></td>
+    -->
+    </div>
+  </div>
+</div>

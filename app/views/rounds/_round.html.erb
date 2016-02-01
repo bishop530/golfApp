@@ -1,0 +1,8 @@
+<tr>
+	<td><%= link_to friendly_date(round), round %></td>
+  <td><%= round.course.name %></td>
+  <% if current_golfer.admin? %>
+    <td><%= link_to 'Edit', edit_round_path(course) %></td>
+    <td><%= link_to 'Delete', round, method: :delete %></td>
+  <% end %>
+</tr>

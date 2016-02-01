@@ -1,0 +1,66 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>Total</th>
+      <% if current_golfer.admin? %>
+        <th colspan="1"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <td><strong><%= @round.course.name %></strong></td>
+    <% per_hole_par_values = get_values(@round.course.par_data) %>
+    <% for i in per_hole_par_values %>
+      <td><strong><%= i %><strong></td>
+    <% end %>
+    <% total = sum_values(per_hole_par_values) %>
+    <td><strong><%= total %><strong></td>
+    <% if current_golfer.admin? %>
+        <th colspan="1"></th>
+      <% end %>
+
+    <% if @round.scores.count > 0 %>
+    <% @round.scores.each do |score| %>
+      <tr>
+        <td><%= score.golfer.name %></td>
+        <% per_hole_scores = get_values(score.score) %>
+        <% for i in 0..per_hole_scores.length-1 do %>
+          <% if per_hole_scores[i] < per_hole_par_values[i] %>
+            <td><span id="birdie"><%= per_hole_scores[i] %></span></td>
+          <% elsif per_hole_scores[i] > per_hole_par_values[i] %>
+            <td><span id="bogey"><%= per_hole_scores[i] %></span></td>
+          <% else %>
+            <td><%= per_hole_scores[i] %></td>
+          <% end %>
+        <% end %>
+        <% total = sum_values(per_hole_scores) %>
+        <td><%= total %></td>
+        <% if current_golfer.admin? %>
+          <td><%= link_to 'Edit', edit_round_score_path(round_id: score.round, 
+                                                        score_id: score.id) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

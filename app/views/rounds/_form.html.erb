@@ -1,0 +1,19 @@
+
+<%= form_for(@round) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <p>
+  <%= f.label :date %>
+	<%= f.text_field :date, class: 'form-control' %>
+  </p>
+
+  <p>
+	<%= f.label :course %>
+  <%= f.collection_select(:course_id, Course.all, :id, :name, prompt: true) %>
+  </p>
+
+  <p>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  </p>
+      
+<% end %>
+  

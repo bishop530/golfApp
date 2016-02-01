@@ -1,0 +1,12 @@
+<tr>
+	<td><%= link_to course.name, course %></td>
+  <td><%= course.par %></td>
+  <% per_hole_values = get_values(course.par_data) %>
+  <% for i in 0..per_hole_values.length-1 do %>
+    <td><%= per_hole_values[i] %></td>
+  <% end %>
+  <% if current_golfer.admin? %>
+     <td><%= link_to 'Edit', edit_course_path(course) %></td>
+     <td><%= link_to 'Delete', course, method: :delete %></td>
+  <% end %>
+</tr>

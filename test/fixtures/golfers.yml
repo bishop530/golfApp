@@ -1,0 +1,123 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+<% golfers = %w( Clarence Clyde Elijah Steve Shawn Derrick Cleveland David-K David-T Spots
+              Ty John-P John-R Eric Mike ) %>
+
+Clarence:
+  name: Clarence Bishop
+  email: clarencebishop@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Clyde:
+  name: Clyde Bishop
+  email: clydebishop@hp.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Elijah:
+  name: Elijah Luutu
+  email: elijahluutu@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Steve:
+  name: Steve Bueno
+  email: stevebueno@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Shawn:
+  name: Shawn Henderson
+  email: shawnhenderson@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Derrick:
+  name: Derrick Willis
+  email: derrickwillis@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Cleveland:
+  name: Cleveland Harris
+  email: clevelandharris@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+DavidK:
+  name: David Knowles
+  email: davidknowles@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+DavidT:
+  name: David Torrain
+  email: davidtorrain@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Spots:
+  name: Simon Spotswood
+  email: simonspotswood@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Ty:
+  name: Ty Elliott
+  email: tyelliott@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+JohnP:
+  name: John Prince
+  email: johnprince@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+JohnR:
+  name: John Robinson
+  email: johnrobinson@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Eric:
+  name: Eric Williams
+  email: ericwilliams@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Mike:
+  name: Michael Brown
+  email: mikebrown@yahoo.com
+  password_digest: <%= Golfer.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>

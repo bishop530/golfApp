@@ -1,0 +1,23 @@
+<%= form_for(@course) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<p>
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control' %>
+	</p>
+
+	<p>
+	<%= f.label :par %>
+	<%= f.text_field :par, class: 'form-control' %>
+	</p>
+
+	<p>
+	<%= f.label :par_data, 'Per Hole Par Values' %>
+	<%= f.text_field :par_data, class: 'form-control' %>
+  </p>
+
+  <p>
+  <%= f.submit @course.new_record? ? "Add course" : "Update course", 
+                                     class: "btn btn-primary" %>
+  </p> 
+
+<% end %>

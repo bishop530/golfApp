@@ -1,0 +1,41 @@
+<% provide(:title, 'Show Course Rounds') %>
+
+<div class="container">
+  <h1>Rounds Played on Course</h1>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-0">
+
+        <% if @course.rounds.size > 0 %>
+
+          <table class="table table-bordered table-striped table-hover">
+
+          	<thead>
+              <tr>
+                <th>Date</th>
+                <% if current_golfer.admin? %>
+                  <th colspan="1"></th>
+                <% end %>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @course.rounds.each do |round| %>
+                <tr>
+                	<td><%= link_to friendly_date(round.date), round %></td>
+                  <% if current_golfer.admin? %>
+                    <td><%= link_to 'Delete', round, method: :delete %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+          	</tbody>
+
+          </table>
+        <% else %>
+          <p><strong>No rounds have been played on this course yet.</strong></p>
+        <% end %>
+<!--
+<%= link_to 'Back', courses_path %> 
+-->
+</div>
+</div>
+</div>

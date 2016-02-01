@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+	  <div class="col-md-4 col-md-offset-0">
+			<table class="table table-bordered table-striped table-hover">
+				<thead>
+	    		<tr>
+	      		<th>Name</th>
+	    		</tr>
+	  		</thead>
+        
+        <!--
+    		<#%= will_paginate %>
+    		-->
+
+	  		<tbody>
+					<%= render partial: 'golfer', collection: @golfers %>
+			</tbody>
+
+			</table>
+			<% if current_golfer.admin? %>
+    		<td><%= link_to "Add Golfer", new_golfer_path %></td>
+  		<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+<% courses = %w( waterview buffalocreek watterscreek trailsoffrisco pecanhollow ridgeviewranch 
+                 westridge twincreeks coyoteridge) %>
+
+<% 4.times do |n| %>
+round_<%= n %>:
+  date: <%= Time.now - n.weeks %>
+  course: <%= courses[n] %>
+<% end %>

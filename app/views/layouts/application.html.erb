@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>My Golf App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div id="container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#the-menu">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand brand" href="/">NTP Golf</a>
+          </div>
+          <div class="collapse navbar-collapse" id="the-menu">
+            <ul class="nav navbar-nav">
+              <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+              <% if logged_in? %>
+                <li><a href="/courses"><span class="glyphicon glyphicon-flag"></span>&nbsp;Courses</a></li>
+                <li><a href="/rounds"><span class="glyphicon glyphicon-flag"></span>&nbsp;Rounds</a></li>
+                <li><a href="/golfers"><span class="glyphicon glyphicon-user"></span>&nbsp;Golfers</a></li>
+                <li><a href= <%= edit_golfer_path(current_golfer) %> ><span class="glyphicon glyphicon-earphone"></span>&nbsp;Profile</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <%= link_to logout_path, method: "delete" do %>
+                  <span class="glyphicon glyphicon-log-out"></span> Log out
+                <% end %> 
+              </li>
+
+<!--
+<li><%= link_to '<i class="glyphicon glyphicon-log-out"></i> Log out'.html_safe, logout_path, method: "delete" %></li>
+-->
+
+                          
+            </ul>
+
+            <% else %>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Log In</a></li>
+              </ul>
+            <% end %>
+
+          </div>
+        </div>
+      </nav>      
+      <section id="main">
+        <article>
+
+          <% flash.each do |message_type, message| %>
+            <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+          <% end %>
+
+          <%= yield %>
+
+        </article>
+
+        <aside>
+          <%= yield :aside %>
+        </aside>
+
+      </section>
+
+    </div>
+  </body>
+
+</html>
+
+

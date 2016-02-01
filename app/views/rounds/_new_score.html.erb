@@ -1,0 +1,32 @@
+
+<%= form_for([round, score]) do |f| %>
+  <% if score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(score.errors.count, "error") %> prohibited this score from being saved:</h2>
+
+      <ul>
+      <% score.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-0">
+      <p>
+      <%= f.label 'Golfer:' %>
+      <%= f.collection_select(:golfer_id, Golfer.all, :id, :name, prompt: true) %>
+      </p>
+
+      <p>
+      <%= f.label :score %>
+      <%= f.text_field :score, class: 'form-control' %>
+      </p>
+      
+      <p>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+      </p>
+    </div>
+  </div>
+<% end %>

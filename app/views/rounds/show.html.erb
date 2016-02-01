@@ -1,0 +1,22 @@
+
+<div class="container">
+<div class="row">
+  <div class="col-md-12 col-md-offset-0">
+
+	<p>
+  	<strong>Date:</strong>
+  	<strong><%= friendly_date(@round.date) %></strong>
+	</p>
+
+	<%= render partial: "score_list", :locals => { :course => @round.course, :scores => @round.scores } %>
+
+	<% if current_golfer.admin? %>
+		<%= render partial: "new_score", :locals => { :round => @round, 
+		                                              :score => Score.new(round_id: @round.id) } %>
+	<% end %>
+	<!--
+	<%= link_to 'Back', rounds_path %>
+	-->
+</div>
+</div>
+</div>

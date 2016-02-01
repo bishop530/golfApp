@@ -1,0 +1,11 @@
+<h1>NTGA New Member Activation</h1>
+
+<p>Hi <%= @golfer.name %>,</p>
+
+<p>
+Welcome to the NTGA group. Click on the link below to activate you account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@golfer.activation_token, 
+                                                    email: @golfer.email) %>
+ 
